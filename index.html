@@ -5,7 +5,22 @@ var oneYrCountDownDate = new Date("Jan 20, 2025 00:00:00").getTime();
 var threeYrCountDownDate = new Date("Jan 20, 2027 00:00:00").getTime();
 var tenYrCountDownDate = new Date("Jan 20, 2034 00:00:00").getTime();
 var eighteenYrCountDownDate = new Date("Jan 20, 2042 00:00:00").getTime();
+function cal(){
+ // Get hang's birth date and time
+ const hangLanding = new Date('Jan 20, 2023 00:00:00 GMT+00:00');
+ var hangLandingtime = hangLanding.getTime();
+  var now = new Date().getTime();
 
+  // Find the distance between now and the count down date
+  var distance = now - hangLandingtime;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  //3% interest
+  return 10000*(1+0.03*days/365)
+}
+  
 function display(importantDate){
   // Get today's date and time
   var now = new Date().getTime();
@@ -36,7 +51,7 @@ var x = setInterval(function() {
   document.getElementById("demo3").innerHTML = display(threeYrCountDownDate);
   document.getElementById("demo10").innerHTML = display(tenYrCountDownDate);
   document.getElementById("demo18").innerHTML = display(eighteenYrCountDownDate);
-
+  document.getElementById("funding").innerHTML = cal();
 
 }, 1000);
 </script>
@@ -51,7 +66,7 @@ var x = setInterval(function() {
   <p>今日係你黎呢個世界第 100 日</p>
   <p>祝願你身體健康同埋快高長大
    開心快樂過每一天</p>
-  <p>送上 $10000 學習基金</p>
+  <p>送上 <span id="funding"></span> 學習基金</p>
   <p class="signature">舅父上</p>
   <p>仲有<span id="demo1"></span>就1歲啦</p>
   <p>仲有<span id="demo3"></span>就3歲啦</p>
