@@ -1,16 +1,17 @@
 <html>
  <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+var oneYrCountDownDate = new Date("Jan 20, 2025 00:00:00").getTime();
+var threeYrCountDownDate = new Date("Jan 20, 2027 00:00:00").getTime();
+var tenYrCountDownDate = new Date("Jan 20, 2034 00:00:00").getTime();
+var eighteenYrCountDownDate = new Date("Jan 20, 2042 00:00:00").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
+fuction display(importantDate){
   // Get today's date and time
   var now = new Date().getTime();
 
   // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  var distance = importantDate - now;
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -18,14 +19,23 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+ return days + "日"+ hours + "小時"+ minutes + "分" + seconds + "秒";
+
+}
+ 
+
+// Update the count down every 1 second
+var x = setInterval(function() {
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById("demo1").innerHTML = display(oneYrCountDownDate);
+  document.getElementById("demo3").innerHTML = display(threeYrCountDownDate);
+  document.getElementById("demo10").innerHTML = display(tenYrCountDownDate);
+  document.getElementById("demo18").innerHTML = display(eighteenYrCountDownDate);
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("demo").innerHTML = "PASSED";
   }
 }, 1000);
 </script>
@@ -42,7 +52,10 @@ var x = setInterval(function() {
    開心快樂過每一天</p>
   <p>送上 $10000 學習基金</p>
   <p class="signature">舅父上</p>
-  <p id="demo"></p>
+  <p>仲有<p id="demo1"></p>就1歲啦</p>
+  <p>仲有<p id="demo3"></p>就3歲啦</p>
+  <p>仲有<p id="demo10"></p>就10歲啦</p>
+  <p>仲有<p id="demo18"></p>就18歲啦</p>
  </div>
 </body>
 </html>
