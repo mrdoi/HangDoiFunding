@@ -21,6 +21,10 @@ var threeYrCountDownDate = new Date("Jan 20, 2027 00:00:00").getTime();
 var tenYrCountDownDate = new Date("Jan 20, 2034 00:00:00").getTime();
 var eighteenYrCountDownDate = new Date("Jan 20, 2042 00:00:00").getTime();
 
+function up(v, n) {
+    return Math.ceil(v * Math.pow(10, n)) / Math.pow(10, n);
+}
+   
 function calculatedollar(){
  // Get hang's birth date and time
  const hangLanding = new Date('Jan 20, 2024 00:00:00 GMT+00:00');
@@ -67,7 +71,7 @@ var x = setInterval(function() {
   //document.getElementById("demo3").innerHTML = display(threeYrCountDownDate);
   //document.getElementById("demo10").innerHTML = display(tenYrCountDownDate);
   //document.getElementById("demo18").innerHTML = display(eighteenYrCountDownDate);
-  document.getElementById("funding").innerHTML = calculatedollar();
+  document.getElementById("funding").innerHTML = up(calculatedollar(),2);
 
 }, 1000);
 </script>
